@@ -24,7 +24,6 @@ const useAuth = () => {
         navigate("/User-Page");
       } else {
         setUser(null);
-        navigate("/");
       }
       setLoading(false);
     });

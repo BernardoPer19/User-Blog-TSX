@@ -1,7 +1,10 @@
+import BlogList from "../components/BlogList"
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <div>
+      <BlogList/>
+    </div>
   )
 }
 

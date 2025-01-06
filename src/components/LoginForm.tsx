@@ -7,7 +7,7 @@ const LoginForm = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    name: "", // Solo para registro
+    name: "", 
     errors: {
       email: "",
       password: "",
