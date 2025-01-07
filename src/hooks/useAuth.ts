@@ -21,7 +21,6 @@ const useAuth = () => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
-        navigate("/User-Page");
       } else {
         setUser(null);
       }

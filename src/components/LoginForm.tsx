@@ -39,7 +39,7 @@ const LoginForm = () => {
       errors.password = "Password must be at least 6 characters.";
     }
 
-    if (!isLogin && !formData.name) { // Solo validamos el nombre si no estamos en login
+    if (!isLogin && !formData.name) { 
       errors.name = "Name is required.";
     }
 

@@ -1,4 +1,5 @@
 import { User as FirebaseUser } from "firebase/auth"; // Importa el tipo User de Firebase
+import { Link } from "react-router-dom";
 
 interface UserInfoProps {
   user: FirebaseUser | null; 
@@ -15,15 +16,18 @@ const UserInfo = ({ user, hadleLogOut }: UserInfoProps) => {
               <h1 className="text-3xl font-semibold text-gray-800">
                 {user?.displayName || "User"} {/* Si no hay nombre, se muestra "User" */}
               </h1>
-              <p className="text-sm text-gray-600">{user?.email || "No email"}</p>
+              <p className="text-sm text-gray-600">{user?.email || "No email" }</p>
+
             </div>
-            <div className="space-x-4">
-              <button
-                onClick={() => {/* Acción para editar perfil */}}
-                className="px-6 py-3 bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-600 transform transition-all duration-200 ease-in-out"
+            <div className="space-x-4 z-50">
+              <Link
+               to={"/Create-Post"}
+  
+               className="px-6 py-3  bg-green-500 text-white rounded-full shadow-md hover:bg-green-600 transform transition-all duration-200 ease-in-out"
               >
-                Edit Profile
-              </button>
+                Crear Post
+              </Link>
+             
               <button
                 onClick={hadleLogOut}
                 className="px-6 py-3 bg-red-500 text-white rounded-full shadow-md hover:bg-red-600 transform transition-all duration-200 ease-in-out"

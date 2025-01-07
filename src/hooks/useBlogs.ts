@@ -62,29 +62,34 @@ export const useBlogs = (uid?: string) => {
     }
   };
 
-  // Función para agregar un nuevo post
   const addBlog = async (uid: string, post: PostType) => {
     if (!uid) {
       console.error("UID no proporcionado");
       return;
     }
-
+  
     if (!post || typeof post !== "object") {
       console.error("El post proporcionado no es válido");
       return;
     }
-
+  
     try {
       const collectionRef = collection(db, "posts");
       const newPost = { ...post, authorID: uid, createdAt: new Date() };
+  
+      // Agregar el post a Firestore
       const docRef = await addDoc(collectionRef, newPost);
-
-      setPosts((prevPosts) => [{ id: docRef.id, ...newPost }, ...prevPosts]);
+  
+      // Aquí ya Firestore ha generado el 'id', por lo que lo agregamos al objeto solo si no existe
+      const postWithId = { ...newPost, id: docRef.id };
+  
+      // Ahora actualizamos el estado con el post completo
+      setPosts((prevPosts) => [postWithId, ...prevPosts]);
     } catch (error) {
       console.error("Error al agregar el post:", error);
     }
   };
-
+  
   // Función para eliminar un post
   const deleteBlog = async (id: string) => {
     try {

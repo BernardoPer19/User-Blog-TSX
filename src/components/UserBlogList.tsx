@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useBlogContext } from "../context/BlogContext";
 
 const UserBlogList = () => {
-  const { posts, fetchData, loading, user } = useBlogContext(); 
+  const { posts, fetchData, loading, user,deleteBlog } = useBlogContext(); 
 
   useEffect(() => {
     if (user?.uid) {
@@ -44,6 +44,9 @@ const UserBlogList = () => {
               </h3>
               <p className="text-gray-600 mt-2 line-clamp-3">{post.content}</p>
             </div>
+            <button 
+            onClick={()=>deleteBlog(post.id)}
+            className="bg-red-500 hover:bg-red-600 w-full py-3 text-white">Delete Blog</button>
           </div>
         ))}
       </div>

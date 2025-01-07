@@ -1,5 +1,5 @@
 export interface PostType {
-  id?: string;
+  id: string;
   authorID?: string;
   content: string;
   imageUrl: string;

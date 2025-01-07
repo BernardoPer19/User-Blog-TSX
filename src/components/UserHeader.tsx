@@ -1,5 +1,4 @@
 import useAuth from "../hooks/useAuth"; 
-// import FeedForm from "./FeedForm";
 import UserInfo from "./UserInfo";
 
 const UserData = () => {
@@ -15,10 +14,10 @@ const UserData = () => {
   return (
     <div className="min-h-[60vh] bg-gray-50">
       {/* Banner de usuario con imagen provisional */}
-      <div className="relative h-56 bg-cover bg-center" style={{ backgroundImage: `url('https://via.placeholder.com/1500x500')` }}>
+      <div className="relative h-56 bg-cover bg-center" style={{ backgroundColor: "#42a9ff" }}>
         <div className="absolute inset-x-0 bottom-0 transform translate-y-1/2 text-center">
           <img
-            src={user?.photoURL || "https://via.placeholder.com/150"}
+            src={user?.photoURL || "https://www.citypng.com/public/uploads/preview/black-user-member-guest-icon-701751695037011q8iwf4mjbn.png"}
             alt="User Avatar"
             className="w-32 h-32 rounded-full border-4 border-white mx-auto"
           />
@@ -28,7 +27,6 @@ const UserData = () => {
       {/* Información del usuario */}
     <UserInfo user={user} hadleLogOut={hadleLogOut}/>
 
-      {/* Feed Section - Opcional */}
       {/* <FeedForm/> */}
     </div>
   );

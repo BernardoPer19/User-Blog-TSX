@@ -1,9 +1,8 @@
-import BlogList from "../components/BlogList"
 
 const HomePage = () => {
   return (
     <div>
-      <BlogList/>
+      "Aqui estara la landing page"
     </div>
   )
 }
