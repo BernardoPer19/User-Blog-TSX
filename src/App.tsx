@@ -5,7 +5,6 @@ import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar";
 import BlogPage from "./pages/BlogPage";
 import CreatePost from "./pages/CreatePost";
-import EditProfile from "./pages/EditProfile";
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
         <Route path="/Login-page" element={<LoginPage />} />
         <Route path="/User-Page" element={<UserPage />} />
         <Route path="/Create-Post" element={<CreatePost />} />
-        <Route path="/Edit-Profile" element={<EditProfile />} />
       </Routes>
     </>
   );
