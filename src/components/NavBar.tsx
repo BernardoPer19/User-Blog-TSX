@@ -17,21 +17,13 @@ const NavBar = () => {
           </Link>
         </h1>
         <ul className="flex space-x-6">
+
           <li>
             <Link to="/" className="hover:underline">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/Blogs" className="hover:underline">
               Blogs
             </Link>
           </li>
-          <li>
-            <Link to="/Contact" className="hover:underline">
-              Contact
-            </Link>
-          </li>
+
           {user ? (
             <li>
               <Link to="/User-Page" className="hover:underline">

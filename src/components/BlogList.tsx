@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import { useBlogs } from "../hooks/useBlogs";
 import { useEffect } from "react";
+import SkeletonPost from "./Skeleton";
 
 const BlogList = () => {
   const { posts, loading, getAllPosts } = useBlogs();
@@ -8,10 +10,21 @@ const BlogList = () => {
     getAllPosts();
   }, []);
 
-  if (loading) return <p className="text-center text-gray-500">Cargando blogs...</p>;
+  if (loading) {
+    return (
+      <div className="container mx-auto p-6">
+        <h1 className="text-4xl font-bold text-center text-gray-900 mb-8">Blog</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[...Array(6)].map((_, index) => (
+            <SkeletonPost key={index} />
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-6">
       {posts.map((post) => (
         <div
           key={post.id}
@@ -30,9 +43,10 @@ const BlogList = () => {
               {post.content}
             </p>
             <div className="mt-4 flex justify-end">
-              <button className="px-6 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium shadow-md hover:bg-blue-700 transition duration-200 ease-in-out">
+              
+            <Link to={`/post/${post.id}`} className="text-blue-500 mt-4 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors">
                 Leer más
-              </button>
+              </Link>  
             </div>
           </div>
         </div>
