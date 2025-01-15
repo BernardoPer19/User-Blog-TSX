@@ -5,7 +5,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { PostType } from "../types/PostTypes";
 
 function DetailsPage() {
-  const { id } = useParams(); // Obtener el ID del post desde la URL
+  const { id } = useParams(); 
   const [post, setPost] = useState<PostType | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -18,11 +18,11 @@ function DetailsPage() {
           return;
         }
 
-        const docRef = doc(db, "posts", id); // Asegúrate de pasar el ID correcto
+        const docRef = doc(db, "posts", id); 
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-          setPost(docSnap.data() as PostType); // Conversión explícita
+          setPost(docSnap.data() as PostType); 
         } else {
           console.log("No se encontró el post");
         }
@@ -47,7 +47,7 @@ function DetailsPage() {
   return (
     <div className="container mx-auto p-6">
       <img
-        src={post.imageUrl || "/default-image.jpg"} // Imagen del post
+        src={post.imageUrl || "/default-image.jpg"} 
         alt={post.title || "Post Image"}
         className="w-full h-[60vh] object-cover rounded-md mb-4"
       />
