@@ -6,7 +6,7 @@ import { User } from "firebase/auth";
 
 interface BlogContextType {
   user: User | null;
-  allPosts: PostType[]; // Cambia esto al tipo de tus posts
+  allPosts: PostType[]; 
   posts: PostType[];
   hadleLogOut: () => void;
   handleLogin: (email: string, password: string) => void;
