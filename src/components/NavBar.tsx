@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { useBlogContext } from "../context/BlogContext"; // Asegúrate de importar el contexto
-import { useState } from "react"; // Importa useState para manejar el estado local
+import { useBlogContext } from "../context/BlogContext"; 
+import { useState } from "react";
 
 const NavBar = () => {
   const { user, hadleLogOut } = useBlogContext(); 
-  const [menuOpen, setMenuOpen] = useState(false); // Estado local para controlar la visibilidad del menú
+  const [menuOpen, setMenuOpen] = useState(false); 
 
   const toggleMenu = () => setMenuOpen(prevState => !prevState);
 
@@ -33,7 +33,7 @@ const NavBar = () => {
           ) : null}
         </ul>
 
-        {/* Perfil del Usuario */}
+     
         <div className="relative">
           <button onClick={toggleMenu} className="flex items-center space-x-2 focus:outline-none">
             <div className="bg-white text-blue-600 rounded-full w-8 h-8 flex items-center justify-center font-bold">
@@ -44,7 +44,7 @@ const NavBar = () => {
             </span>
           </button>
 
-          {/* Menú desplegable */}
+       
           {menuOpen && (
             <div className="absolute z-50 right-0 mt-2 bg-white text-gray-800 rounded shadow-lg p-4 w-48">
               {user ? (
@@ -58,7 +58,7 @@ const NavBar = () => {
                     Ir a Perfil
                   </Link>
                   <button
-                    onClick={hadleLogOut} // Usar la función de logout del contexto
+                    onClick={hadleLogOut}
                     className="w-full mt-2 text-left text-red-500 hover:underline"
                   >
                     Cerrar Sesión
