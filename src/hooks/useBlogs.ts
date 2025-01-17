@@ -76,14 +76,11 @@ export const useBlogs = (uid?: string) => {
     try {
       const collectionRef = collection(db, "posts");
       const newPost = { ...post, authorID: uid, createdAt: new Date() };
-  
-      // Agregar el post a Firestore
+
       const docRef = await addDoc(collectionRef, newPost);
-  
-      // Aquí ya Firestore ha generado el 'id', por lo que lo agregamos al objeto solo si no existe
+     
       const postWithId = { ...newPost, id: docRef.id };
   
-      // Ahora actualizamos el estado con el post completo
       setPosts((prevPosts) => [postWithId, ...prevPosts]);
     } catch (error) {
       console.error("Error al agregar el post:", error);
